@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.commerce.microservice.beans.Client;
 import com.commerce.microservice.repositories.ClientRepository;
 
-import ch.qos.logback.core.net.server.Client;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@Api(description="API REST")
+@Api(description="CRUD sur les clients")
 public class ClientController {
 	
 	@Autowired
@@ -32,26 +32,31 @@ public class ClientController {
 	}
 	
 	@GetMapping("/clients/{id}")
+	@ApiOperation(value="Permet de recupérer un client via son identifiant.")
 	public Optional<Client> get(@PathVariable Long id){
 		return this.clientRepo.findById(id);
 	}
 	
 	@PostMapping("/clients")
+	@ApiOperation(value="Permet d'ajouter un client.")
 	public void add(@RequestBody Client client) {
 		this.clientRepo.save(client);
 	}
 	
 	@PutMapping("/clients")
+	@ApiOperation(value="Permet de mettre à jour un client.")
 	public void update(@RequestBody Client client) {
 		this.clientRepo.save(client);
 	}
 	
 	@DeleteMapping("/clients")
+	@ApiOperation(value="Permet de supprimer un client.")
 	public void remove(@RequestBody Client client) {
 		this.clientRepo.delete(client);
 	}
 	
 	@DeleteMapping("/clients/{id}")
+	@ApiOperation(value="Permet de supprimer un client via son identifiant.")
 	public void removeById(@PathVariable Long id) {
 		this.clientRepo.deleteById(id);
 	}
