@@ -13,4 +13,20 @@ client donné en fournissant le numéro du client.
 
 ## Architecture du projet  
 
-A venir...
+Pour une meilleur organisation, le projet a été découpé sous forme de packages comme suit :
+
+#### com.commerce.microservice.beans  
+
+Contient les objets métiers ou `entités` de notre service.
+
+#### com.commerce.microservice.controllers  
+
+Contient nos `controllers` chargés d'exécuter les opérations correspondantes aux différents endpoints.
+
+#### com.commerce.microservice.repositories
+
+Contient des interfaces représentant nos `repository` permettant de manager les entités c'est à dire leur récupération et persistance.
+
+#### com.commerce.microservice.utils
+
+Contient des classes utilitaires.
